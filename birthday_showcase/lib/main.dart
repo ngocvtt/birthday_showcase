@@ -1,4 +1,11 @@
+import 'package:birthday_showcase/igniters_page.dart';
+import 'package:birthday_showcase/wish_page.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:timelines/timelines.dart';
+
+import 'component/milestone_cell.dart';
+import 'component/photo_cell.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,23 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Embrace the journey',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -55,71 +47,156 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final List<PhotoCell> photos = [
+    const PhotoCell(path: 'assets/image/team_building.jpg'),
+    const PhotoCell(path: 'assets/image/1.jpg'),
+    const PhotoCell(path: 'assets/image/2.jpg'),
+    const PhotoCell(path: 'assets/image/3.jpg'),
+    const PhotoCell(path: 'assets/image/4.jpg'),
+    const PhotoCell(path: 'assets/image/5.jpg'),
+  ];
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  final List<Widget> milestones = [
+    const MilestoneCell(date: "20/10/2022", description: "WTM HCMC was founded", color: Color(0xff6de4b7),),
+    const MilestoneCell(date: "10/11/2022", description: "First offline event - “Platform Engineering” in collaboration with Skedulo"),
+    const MilestoneCell(date: "12/11/2022 - 20/11/2022", description: "First online writing contest hosted by WTM HCMC - Em và Tech"),
+    const MilestoneCell(date: "17/12/2022", description: "First Devfest and the first time running a full event for the team with Tech Career Masterclass: How to start and thrive in tech"),
+    const MilestoneCell(date: "25/02/2023", description: "Coming to TEDxDakao: Aspiration and promoting WTM HCMC"),
+    const MilestoneCell(date: "08/04/2023", description: "The first IWD hosted by WTM HCMC This is also the first IWD that organized by a WTM team in Vietnam."),
+    const MilestoneCell(date: "07/05/2023", description: "Plan and host  a half-day event for Dariu foundation: AI - trends & career prospects"),
+    const MilestoneCell(date: "21/05/2023", description: "First internal training on how to use Jira to optimize the team’s workflow"),
+    const MilestoneCell(date: "02/06/2023 - 04/06/2023", description: "The first WTM HCMC’s team building"),
+    const MilestoneCell(date: "08/07/2023", description: "Collaborate with GDG HCMC to host I/O Extended"),
+    const MilestoneCell(date: "14/10/2023", description: "Successfully launch the new format program: Mentorship program - Sudo Code 2023"),
+    const MilestoneCell(date: "15/10/2023", description: "WTM HCMC’s 1st birthday party"),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      backgroundColor: const Color(0xff222222),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Image.asset(
+                'assets/icon/logo.png',
+                height: 80,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Row(
+                  children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/icon/quote.png", height: 100,),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 100.0),
+                        child: Text(
+                          "While thinking about  how to mark our first year as members of WTM HCMC, "
+                              "I find myself looking back on the incredible journey we've been through "
+                              "and I’m so proud of each and every one of you who has contributed to the growth"
+                              " of this community, day by day. Although challenges may lie ahead, our team never "
+                              "say no We always strive to find ways for our 'crazy ideas,' and that spirit has brought us "
+                              "here today.Life offers us numerous paths, some chosen and some unexpected, and I want to "
+                              "express my deep appreciation for your willingness to embrace this romantic journey with WTM HCMC.",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text("- Ngoc Vo -\nFounder & General lead", style: TextStyle(color: Colors.white, fontSize: 14, fontStyle: FontStyle.italic), textAlign: TextAlign.center,),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 150,),
+                Expanded(
+                  child: Image.asset(
+                    'assets/image/Logo_1Y-03.png',
+                    height: 400,
+                  ),
+                ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CarouselSlider(
+                            items: photos,
+                            options: CarouselOptions(
+                              height: 330,
+                              aspectRatio: 16 / 9,
+                              viewportFraction: 0.8,
+                              initialPage: 0,
+                              enableInfiniteScroll: true,
+                              reverse: false,
+                              autoPlay: true,
+                              autoPlayInterval: Duration(seconds: 3),
+                              autoPlayAnimationDuration: Duration(milliseconds: 800),
+                              autoPlayCurve: Curves.linear,
+                              enlargeCenterPage: true,
+                              enlargeFactor: 0.3,
+                              // onPageChanged: callbackFunction,
+                              scrollDirection: Axis.horizontal,
+                            )),
+                        SizedBox(height: 50,),
+                        IgniterPage(),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 150,),
+                  Expanded(child:
+                  Column(
+                    children: [
+                      SizedBox(height: 50,),
+                      SizedBox(
+                        height: 1400,
+                        child: Timeline.tileBuilder(
+                          builder: TimelineTileBuilder.fromStyle(
+                            contentsAlign: ContentsAlign.alternating,
+                            contentsBuilder: (context, index) => milestones[index],
+                            itemCount: milestones.length,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 100,),
+                      SizedBox(
+                        height: 300,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/image/Illustration.png", height: 300,),
+                            SizedBox(width: 20,),
+                            Image.asset("assets/image/IGNITER.png", height: 100,),
+                          ],
+                        ),
+                      )
+                    ],
+                  )),
+                ],
+              ),
+              WishPage()
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
