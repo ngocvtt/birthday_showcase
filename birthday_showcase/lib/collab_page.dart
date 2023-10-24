@@ -21,6 +21,8 @@ class IgniteCollabPage extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Container(width: 200, height: 1, color: Colors.white,),
+          SizedBox(height: 50,),
           Text("Ignite Collaborators", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
           // SizedBox(height: 20,),
           SizedBox(

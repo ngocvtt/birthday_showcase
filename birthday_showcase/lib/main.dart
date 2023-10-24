@@ -1,4 +1,5 @@
 import 'package:birthday_showcase/collab_page.dart';
+import 'package:birthday_showcase/fuba_page.dart';
 import 'package:birthday_showcase/igniters_page.dart';
 import 'package:birthday_showcase/wish_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -55,6 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
     const PhotoCell(path: 'assets/image/3.jpg'),
     const PhotoCell(path: 'assets/image/4.jpg'),
     const PhotoCell(path: 'assets/image/5.jpg'),
+    const PhotoCell(path: 'assets/image/6.jpeg'),
+    const PhotoCell(path: 'assets/image/7.jpeg'),
   ];
 
   final List<Widget> milestones = [
@@ -193,7 +196,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
                 ],
               ),
-              Center(child: IgniteCollabPage()),
+              Row(
+                children: [
+                  IgniteCollabPage(),
+                  SizedBox(width: 150,),
+                  Expanded(child: FubaPage()),
+                ],
+              ),
               SizedBox(
                 height: 20,
               ),

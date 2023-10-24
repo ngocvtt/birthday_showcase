@@ -29,7 +29,14 @@ class IgniterPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text("The Igniters 🔥", style: TextStyle(color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text("The Igniters", style: TextStyle(color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),),
+              SizedBox(width: 10,),
+              Image.asset("assets/image/fire.gif", width: 100,)
+            ],
+          ),
           SizedBox(height: 20,),
           SizedBox(
             width: 600,
