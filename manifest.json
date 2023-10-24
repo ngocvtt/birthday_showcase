@@ -1,11 +1,11 @@
 {
-    "name": "birthday_showcase",
-    "short_name": "birthday_showcase",
+    "name": "Embrace the journey",
+    "short_name": "Embrace the journey",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Happy birthday WTM HCMC 1!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
