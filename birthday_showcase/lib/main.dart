@@ -1,3 +1,4 @@
+import 'package:birthday_showcase/collab_page.dart';
 import 'package:birthday_showcase/igniters_page.dart';
 import 'package:birthday_showcase/wish_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -191,6 +192,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   )),
                 ],
+              ),
+              Center(child: IgniteCollabPage()),
+              SizedBox(
+                height: 20,
               ),
               WishPage()
             ],
